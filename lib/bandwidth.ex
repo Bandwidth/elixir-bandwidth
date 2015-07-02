@@ -3,6 +3,7 @@ defmodule Bandwidth do
     quote do
       alias Bandwidth.Client
       alias Bandwidth.Resources.Messages
+      alias Bandwidth.Resources.Calls
     end
   end
 

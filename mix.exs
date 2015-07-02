@@ -3,7 +3,7 @@ defmodule Bandwidth.Mixfile do
 
   def project do
     [ app: :bandwidth,
-      version: "0.1.0",
+      version: "0.2.0",
       elixir: "~> 1.0",
       description: "An Elixir client library for the Bandwidth Application Platform",
       package: package,
