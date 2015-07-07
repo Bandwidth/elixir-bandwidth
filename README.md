@@ -3,6 +3,8 @@ elixir-bandwidth
 
 > An Elixir client library for the Bandwidth Application Platform
 
+[![Build Status](https://travis-ci.org/wtcross/elixir-bandwidth.svg?branch=master)](https://travis-ci.org/wtcross/elixir-bandwidth)
+
 ## Install
 Add as a dependency:
 ```elixir
