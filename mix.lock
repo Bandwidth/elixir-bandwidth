@@ -1,9 +1,11 @@
-%{"coverex": {:git, "git://github.com/wtcross/coverex.git", "888a5abba8b12113144e6f48dd23b9b8d3d4df6b", [branch: "bump-dependency-versions"]},
-  "dialyze": {:hex, :dialyze, "0.1.4"},
+%{"dialyze": {:hex, :dialyze, "0.1.4"},
   "ex_spec": {:hex, :ex_spec, "0.3.0"},
+  "excoveralls": {:hex, :excoveralls, "0.3.10"},
+  "exjsx": {:hex, :exjsx, "3.1.0"},
   "hackney": {:hex, :hackney, "1.2.0"},
   "httpoison": {:hex, :httpoison, "0.7.0"},
   "idna": {:hex, :idna, "1.0.2"},
+  "jsx": {:hex, :jsx, "2.4.0"},
   "meck": {:git, "git://github.com/eproxus/meck.git", "17b0ea5b7d9c93af3a52b5152c6bee14302b3885", [tag: "0.8.3"]},
   "poison": {:hex, :poison, "1.4.0"},
   "ssl_verify_hostname": {:hex, :ssl_verify_hostname, "1.0.5"}}
