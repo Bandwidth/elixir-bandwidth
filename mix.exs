@@ -7,7 +7,7 @@ defmodule Bandwidth.Mixfile do
       elixir: "~> 1.0",
       description: "An Elixir client library for the Bandwidth Application Platform",
       package: package,
-      test_coverage: [tool: Coverex.Task],
+      test_coverage: [tool: Coverex.Task, coveralls: true],
       deps: deps ]
   end
 
