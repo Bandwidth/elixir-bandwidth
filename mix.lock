@@ -1,4 +1,4 @@
-%{"coverex": {:hex, :coverex, "1.3.0"},
+%{"coverex": {:git, "git://github.com/wtcross/coverex.git", "37f77f4ece5f2109ab07b177229c401da7f9157a", [branch: "bump-dependency-versions"]},
   "dialyze": {:hex, :dialyze, "0.1.4"},
   "ex_spec": {:hex, :ex_spec, "0.3.0"},
   "hackney": {:hex, :hackney, "1.2.0"},
