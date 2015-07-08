@@ -4,6 +4,7 @@ elixir-bandwidth
 > An Elixir client library for the Bandwidth Application Platform
 
 [![Build Status](https://travis-ci.org/wtcross/elixir-bandwidth.svg?branch=master)](https://travis-ci.org/wtcross/elixir-bandwidth)
+[![hex.pm version](https://img.shields.io/hexpm/v/bandwidth.svg?style=flat)](https://hex.pm/packages/bandwidth)
 
 ## Install
 Add as a dependency:
