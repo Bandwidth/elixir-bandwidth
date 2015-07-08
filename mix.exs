@@ -9,7 +9,6 @@ defmodule Bandwidth.Mixfile do
       package: package,
       test_coverage: [tool: ExCoveralls],
       deps: deps,
-      default_task: "test",
       aliases: aliases]
   end
 
