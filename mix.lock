@@ -4,7 +4,6 @@
   "hackney": {:hex, :hackney, "1.2.0"},
   "httpoison": {:hex, :httpoison, "0.7.0"},
   "idna": {:hex, :idna, "1.0.2"},
-  "meck": {:git, "git@github.com:eproxus/meck.git", "17b0ea5b7d9c93af3a52b5152c6bee14302b3885", [tag: "0.8.3"]},
-  "mock": {:hex, :mock, "0.1.1"},
+  "meck": {:git, "git://github.com/eproxus/meck.git", "17b0ea5b7d9c93af3a52b5152c6bee14302b3885", [tag: "0.8.3"]},
   "poison": {:hex, :poison, "1.4.0"},
   "ssl_verify_hostname": {:hex, :ssl_verify_hostname, "1.0.5"}}
