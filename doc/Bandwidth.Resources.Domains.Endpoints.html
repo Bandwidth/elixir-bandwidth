@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bandwidth.Resources.Domains.Endpoints</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/highlight.pack.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      hljs.initHighlightingOnLoad();
+      hljs.configure({languages: []}); //disable autodetect
+    </script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <section id="content">
+      <div class="breadcrumbs">bandwidth v1.2.1 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Bandwidth.html">Bandwidth</a> &rarr; <a href="Bandwidth.Resources.html">Resources</a> &rarr; <a href="Bandwidth.Resources.Domains.html">Domains</a> &rarr; <a href="Bandwidth.Resources.Domains.Endpoints.html">Endpoints</a></div>
+      <h1>
+        Bandwidth.Resources.Domains.Endpoints
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+      </ul>
+
+      
+        <section id="moduledoc" class="docstring">
+          <p>An Endpoint resource represents an entity that can register with the Application
+Platform SIP Registrar and place and receive calls. This can be a device like
+a phone or a pad, or it can be a softphone on a computer.</p>
+<p><a href="http://ap.bandwidth.com/docs/rest-api/endpoints/">Bandwidth Docs</a></p>
+
+        </section>
+      
+
+      
+
+      
+        <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#create/3">create(client, domain_id, endpoint)</a></td>
+  
+    <td class="summary_synopsis"><p>Create an endpoint associated with the specified domain</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#delete/3">delete(client, domain_id, endpoint_id)</a></td>
+  
+    <td class="summary_synopsis"><p>Delete a specific endpoint</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#find/3">find(client, domain_id, endpoint_id)</a></td>
+  
+    <td class="summary_synopsis"><p>Get information about a specific endpoint</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#list/2">list(client, domain_id)</a></td>
+  
+    <td class="summary_synopsis"><p>Get a list of endpoints associated with a domain</p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+
+      
+        <section id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <section class="detail">
+  <div class="detail_header" id="create/3">
+    <span class="signature"><strong>create(client, domain_id, endpoint)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#create/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>create(Client.t, binary, <a href="http://elixir-lang.org/docs/stable/elixir/Map.html#t:t/0">Map.t</a>) :: Client.response</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Create an endpoint associated with the specified domain.</p>
+<h2>Example:</h2>
+<pre><code class="elixir">endpoint = %{
+  name: &quot;test-device&quot;,
+  description: &quot;this is a test&quot;,
+  domain_id: &quot;some-domain-id&quot;,
+  application_id: &quot;some-application-id&quot;,
+  enabled: true,
+  credentials: {
+    password: &quot;some-password&quot;
+  }
+}
+case Bandwidth.Resources.Domains.Endpoints.create(client, &quot;some-domain-id&quot;, endpoint) do
+  {:ok, {201, _, _}} -&gt; IO.puts &quot;Endpoint created&quot;
+  {:error, reason}   -&gt; IO.puts &quot;Error: #{reason}&quot;
+end</code></pre>
+<p><a href="http://ap.bandwidth.com/docs/rest-api/endpoints/#resourcePOSTv1usersuseriddomainsdomainidendpoints">Bandwidth Docs</a></p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="delete/3">
+    <span class="signature"><strong>delete(client, domain_id, endpoint_id)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#delete/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>delete(Client.t, binary, binary) :: Client.response</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Delete a specific endpoint.</p>
+<h2>Example:</h2>
+<pre><code class="elixir">case Bandwidth.Resources.Domains.Endpoints.delete(client, &quot;some-domain-id&quot;, &quot;some-endpoint-id&quot;) do
+  {:ok, {200, _, _}} -&gt; IO.puts &quot;Endpoint deleted&quot;
+  {:error, reason}   -&gt; IO.puts &quot;Error: #{reason}&quot;
+end</code></pre>
+<p><a href="http://ap.bandwidth.com/docs/rest-api/endpoints/#resourceDELETEv1usersuseriddomainsdomainidendpointsendpointid">Bandwidth Docs</a></p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="find/3">
+    <span class="signature"><strong>find(client, domain_id, endpoint_id)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#find/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>find(Client.t, binary, binary) :: Client.response</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Get information about a specific endpoint.</p>
+<h2>Example:</h2>
+<pre><code class="elixir">case Bandwidth.Resources.Domains.Endpoints.find(client, &quot;some-domain-id&quot;, &quot;some-endpoint-id&quot;) do
+  {:ok, {200, endpoint, _}} -&gt; IO.inspect endpoint
+  {:error, reason}          -&gt; IO.puts &quot;Error: #{reason}&quot;
+end</code></pre>
+<p><a href="http://ap.bandwidth.com/docs/rest-api/endpoints/#resourceGETv1usersuseriddomainsdomainidendpointsendpointid">Bandwidth Docs</a></p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="list/2">
+    <span class="signature"><strong>list(client, domain_id)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#list/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>list(Client.t, binary) :: Client.response</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Get a list of endpoints associated with a domain.</p>
+<h2>Example:</h2>
+<pre><code class="elixir">case Bandwidth.Resources.Domains.Endpoints.list(client, &quot;some-domain-id&quot;) do
+  {:ok, {200, endpoints, _}} -&gt; IO.inspect endpoints
+  {:error, reason}           -&gt; IO.puts &quot;Error: #{reason}&quot;
+end</code></pre>
+<p><a href="http://ap.bandwidth.com/docs/rest-api/endpoints/#resourceGETv1usersuseriddomainsdomainidendpoints">Bandwidth Docs</a></p>
+
+  </section>
+  
+</section>
+
+        </section>
+      
+
+      
+
+      
+    </section>
+  </body>
+</html>

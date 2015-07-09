@@ -25,7 +25,7 @@
     </script>
 
     <section id="content">
-      <div class="breadcrumbs">bandwidth v1.1.1 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Bandwidth.html">Bandwidth</a> &rarr; <a href="Bandwidth.Resources.html">Resources</a> &rarr; <a href="Bandwidth.Resources.Applications.html">Applications</a></div>
+      <div class="breadcrumbs">bandwidth v1.2.1 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Bandwidth.html">Bandwidth</a> &rarr; <a href="Bandwidth.Resources.html">Resources</a> &rarr; <a href="Bandwidth.Resources.Applications.html">Applications</a></div>
       <h1>
         Bandwidth.Resources.Applications
         
@@ -123,7 +123,7 @@ to it by configuring a callback URL.</p>
     <p>Create an application.</p>
 <h2>Example:</h2>
 <pre><code class="elixir">application = %{ name: &quot;my-awesome-app&quot; }
-case Bandwidth.Resources.Applications.create(client) do
+case Bandwidth.Resources.Applications.create(client, application) do
   {:ok, {201, _, _}} -&gt; IO.puts &quot;Application created&quot;
   {:error, reason}   -&gt; IO.puts &quot;Error: #{reason}&quot;
 end</code></pre>

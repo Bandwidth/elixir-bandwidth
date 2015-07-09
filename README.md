@@ -11,7 +11,7 @@ elixir-bandwidth
 Add as a dependency:
 ```elixir
 defp deps() do
-  [{:bandwidth, "~> 1.1.1"}]
+  [{:bandwidth, "~> 1.2.1"}]
 end
 ```
 Fetch and compile:
@@ -53,4 +53,4 @@ case AvailableNumbers.Local.search(client, zip: 22303) do
 end
 ```
 
-[Documentation](http://hexdocs.pm/bandwidth/1.1.1/)
+[Documentation](http://hexdocs.pm/bandwidth/1.2.1/)

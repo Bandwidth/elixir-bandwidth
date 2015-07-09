@@ -1,7 +1,7 @@
 defmodule Bandwidth.Mixfile do
   use Mix.Project
 
-  @version "1.1.1"
+  @version "1.2.1"
 
   def project do
     [ app: :bandwidth,
