@@ -38,4 +38,17 @@ case Messages.find(client, "m-slkdfjskldjfklsjfdlk") do
   {:ok, {404, _, _}}             -> IO.puts "not found :("
   {:error, reason}               -> IO.inspect reason
 end
+
+# Send a message
+message = %{from: "+12223334444", to: "+13334445555", text: "hello bandwidth"}
+case Messages.create(client, message) do
+  {:ok, {201, _, headers}} -> IO.puts "message sent!"
+  {:error, reason}         -> IO.inspect reason
+end
+
+# Search for a local number
+case AvailableNumbers.Local.search(client, zip: 22303) do
+  {:ok, {200, numbers, headers}} -> IO.inspect numbers
+  {:error, reason}               -> IO.inspect reason
+end
 ```
