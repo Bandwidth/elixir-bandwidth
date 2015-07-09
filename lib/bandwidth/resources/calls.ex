@@ -1,7 +1,7 @@
 defmodule Bandwidth.Resources.Calls do
   import Bandwidth.Client
 
-  def list(client),             do: get_user_resource(client, [ "calls" ])
+  def list(client, params),     do: get_user_resource(client, [ "calls" ], params)
   def create(client, call),     do: post_user_resource(client, [ "calls" ], call)
   def find(client, id),         do: get_user_resource(client, [ "calls", id ])
   def update(client, id, call), do: post_user_resource(client, [ "calls", id ], call)
