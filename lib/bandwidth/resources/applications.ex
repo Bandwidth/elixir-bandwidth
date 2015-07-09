@@ -32,7 +32,7 @@ defmodule Bandwidth.Resources.Applications do
   ## Example:
 
       application = %{ name: "my-awesome-app" }
-      case Bandwidth.Resources.Applications.create(client) do
+      case Bandwidth.Resources.Applications.create(client, application) do
         {:ok, {201, _, _}} -> IO.puts "Application created"
         {:error, reason}   -> IO.puts "Error: #{reason}"
       end
