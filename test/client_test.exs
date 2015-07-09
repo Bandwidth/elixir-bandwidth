@@ -114,13 +114,26 @@ defmodule Bandwidth.ClientTest do
 
     context "for a resource" do
       context "with the get_resource helper" do
-        it "sends the correct request" do
-          args = [:get, "#{@default_endpoint}/test", "", @default_headers]
-          :meck.expect HTTPoison, :request, [{args, {:ok, %HTTPoison.Response{status_code: 200}}}]
-          assert get_resource(create_client, "test") === {:ok, {200, nil, []}}
-          assert :meck.num_calls(HTTPoison, :request, args) === 1
-          assert :meck.validate HTTPoison
-          :meck.delete HTTPoison, :request, 4
+        context "with query parameters" do
+          it "sends the correct request" do
+            args = [:get, "#{@default_endpoint}/test?one=1&two=2&three=3", "", @default_headers]
+            :meck.expect HTTPoison, :request, [{args, {:ok, %HTTPoison.Response{status_code: 200}}}]
+            assert get_resource(create_client, "test", one: 1, two: 2, three: 3) === {:ok, {200, nil, []}}
+            assert :meck.num_calls(HTTPoison, :request, args) === 1
+            assert :meck.validate HTTPoison
+            :meck.delete HTTPoison, :request, 4
+          end
+        end
+
+        context "without query parameters" do
+          it "sends the correct request" do
+            args = [:get, "#{@default_endpoint}/test", "", @default_headers]
+            :meck.expect HTTPoison, :request, [{args, {:ok, %HTTPoison.Response{status_code: 200}}}]
+            assert get_resource(create_client, "test") === {:ok, {200, nil, []}}
+            assert :meck.num_calls(HTTPoison, :request, args) === 1
+            assert :meck.validate HTTPoison
+            :meck.delete HTTPoison, :request, 4
+          end
         end
       end
 
