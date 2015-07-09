@@ -1,9 +1,11 @@
 defmodule Bandwidth.Mixfile do
   use Mix.Project
 
+  @version "1.1.1"
+
   def project do
     [ app: :bandwidth,
-      version: "1.1.1",
+      version: @version,
       elixir: "~> 1.0",
       description: "An Elixir client library for the Bandwidth Application Platform",
       package: package,
@@ -29,7 +31,11 @@ defmodule Bandwidth.Mixfile do
     [ files: ["lib", "mix.exs", "README.md", "LICENSE.md"],
       contributors: ["Tyler Cross"],
       licenses: ["MIT"],
-      links: %{ "GitHub": "https://github.com/wtcross/elixir-bandwidth" } ]
+      links: %{
+        GitHub: "https://github.com/wtcross/elixir-bandwidth",
+        Documentation: "http://hexdocs.pm/bandwidth/#{@version}/"
+      }
+    ]
   end
 
   defp deps do
