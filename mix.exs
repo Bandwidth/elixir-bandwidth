@@ -3,7 +3,7 @@ defmodule Bandwidth.Mixfile do
 
   def project do
     [ app: :bandwidth,
-      version: "1.1.0",
+      version: "1.1.1",
       elixir: "~> 1.0",
       description: "An Elixir client library for the Bandwidth Application Platform",
       package: package,
@@ -37,6 +37,8 @@ defmodule Bandwidth.Mixfile do
       { :poison, "~> 1.4.0" },
       { :dialyze, "~> 0.1.4", only: [:dev, :test] },
       { :ex_spec, "~> 0.3.0", only: :test },
+      { :ex_doc, "~> 0.7.3", only: :dev },
+      { :earmark, "~> 0.1.8", only: :dev },
       { :meck, github: "eproxus/meck", tag: "0.8.3", only: :test },
       { :excoveralls, "~> 0.3.10", only: [:dev, :test]}]
   end

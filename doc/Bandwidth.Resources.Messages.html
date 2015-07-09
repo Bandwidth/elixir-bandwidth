@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bandwidth.Resources.Messages</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/highlight.pack.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      hljs.initHighlightingOnLoad();
+      hljs.configure({languages: []}); //disable autodetect
+    </script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <section id="content">
+      <div class="breadcrumbs">bandwidth v1.1.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Bandwidth.html">Bandwidth</a> &rarr; <a href="Bandwidth.Resources.html">Resources</a> &rarr; <a href="Bandwidth.Resources.Messages.html">Messages</a></div>
+      <h1>
+        Bandwidth.Resources.Messages
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+      </ul>
+
+      
+        <section id="moduledoc" class="docstring">
+          <p>The Messages resource lets you send SMS/MMS messages and view messages that were
+previously sent or received.</p>
+<p><a href="http://ap.bandwidth.com/docs/rest-api/messages/">Bandwidth Docs</a></p>
+
+        </section>
+      
+
+      
+
+      
+        <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#create/2">create(client, message)</a></td>
+  
+    <td class="summary_synopsis"><p>Send a message</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#find/2">find(client, id)</a></td>
+  
+    <td class="summary_synopsis"><p>Get information about a message</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#list/2">list(client, params \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Get a list of previous messages</p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+
+      
+        <section id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <section class="detail">
+  <div class="detail_header" id="create/2">
+    <span class="signature"><strong>create(client, message)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#create/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>create(Client.t, <a href="http://elixir-lang.org/docs/stable/elixir/Map.html#t:t/0">Map.t</a>) :: Client.response</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Send a message.</p>
+<h2>Example:</h2>
+<pre><code class="elixir">message = %{ from: &quot;+12223334444&quot;, to: &quot;+3335557777&quot;, text: &quot;HEY!&quot; }
+case Bandwidth.Resources.Messages.create(client, message) do
+  {:ok, {201, _, _}} -&gt; IO.puts &quot;Message sent&quot;
+  {:error, reason}   -&gt; IO.puts &quot;Error: #{reason}&quot;
+end</code></pre>
+<p><a href="http://ap.bandwidth.com/docs/rest-api/messages/#resourcePOSTv1usersuserIdmessages">Bandwidth Docs</a></p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="find/2">
+    <span class="signature"><strong>find(client, id)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#find/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>find(Client.t, binary) :: Client.response</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Get information about a message.</p>
+<h2>Example:</h2>
+<pre><code class="elixir">case Bandwidth.Resources.Messages.find(client, &quot;some-message-id&quot;) do
+  {:ok, {200, message, _}} -&gt; IO.inspect message
+  {:error, reason}         -&gt; IO.puts &quot;Error: #{reason}&quot;
+end</code></pre>
+<p><a href="http://ap.bandwidth.com/docs/rest-api/messages/#resourceGETv1usersuserIdmessagesmessageId">Bandwidth Docs</a></p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="list/2">
+    <span class="signature"><strong>list(client, params \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#list/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>list(Client.t, Client.params) :: Client.response</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Get a list of previous messages.</p>
+<h2>Example:</h2>
+<pre><code class="elixir"># List all previously sent messages
+case Bandwidth.Resources.Messages.list(client) do
+  {:ok, {200, messages, _}} -&gt; IO.inspect messages
+  {:error, reason}          -&gt; IO.puts &quot;Error: #{reason}&quot;
+end
+
+# List messages sent by a specific number.
+case Bandwidth.Resources.Messages.list(client, from: &quot;+12223334444&quot;) do
+  {:ok, {200, messages, _}} -&gt; IO.inspect messages
+  {:error, reason}          -&gt; IO.puts &quot;Error: #{reason}&quot;
+end</code></pre>
+<p><a href="http://ap.bandwidth.com/docs/rest-api/messages/#resourceGETv1usersuserIdmessages">Bandwidth Docs</a></p>
+
+  </section>
+  
+</section>
+
+        </section>
+      
+
+      
+
+      
+    </section>
+  </body>
+</html>

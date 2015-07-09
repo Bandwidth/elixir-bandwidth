@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bandwidth.Resources.Calls</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/highlight.pack.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      hljs.initHighlightingOnLoad();
+      hljs.configure({languages: []}); //disable autodetect
+    </script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <section id="content">
+      <div class="breadcrumbs">bandwidth v1.1.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Bandwidth.html">Bandwidth</a> &rarr; <a href="Bandwidth.Resources.html">Resources</a> &rarr; <a href="Bandwidth.Resources.Calls.html">Calls</a></div>
+      <h1>
+        Bandwidth.Resources.Calls
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+      </ul>
+
+      
+        <section id="moduledoc" class="docstring">
+          <p>The Calls resource lets you make phone calls and view information about previous
+inbound and outbound calls.</p>
+<p><a href="http://ap.bandwidth.com/docs/rest-api/calls/">Bandwidth Docs</a></p>
+
+        </section>
+      
+
+      
+
+      
+        <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#create/2">create(client, call \\ %{})</a></td>
+  
+    <td class="summary_synopsis"><p>Create an outbound phone call</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#find/2">find(client, id)</a></td>
+  
+    <td class="summary_synopsis"><p>Get information about a call that was made or received</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#list/2">list(client, params \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Get a list of previous calls that were made or received</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#update/3">update(client, id, call)</a></td>
+  
+    <td class="summary_synopsis"><p>Manage an active phone call</p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+
+      
+        <section id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <section class="detail">
+  <div class="detail_header" id="create/2">
+    <span class="signature"><strong>create(client, call \\ %{})</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#create/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>create(Client.t, <a href="http://elixir-lang.org/docs/stable/elixir/Map.html#t:t/0">Map.t</a>) :: Client.response</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Create an outbound phone call.</p>
+<h2>Example:</h2>
+<pre><code class="elixir">case Bandwidth.Resources.Calls.create(client, %{ to: &quot;+12223334444&quot;, from: &quot;+19199993333&quot; }) do
+  {:ok, {201, _, _}} -&gt; IO.puts &quot;Call created&quot;
+  {:error, reason}   -&gt; IO.puts &quot;Error: #{reason}&quot;
+end</code></pre>
+<p><a href="http://ap.bandwidth.com/docs/rest-api/calls/#resourcePOSTv1usersuserIdcalls">Bandwidth Docs</a></p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="find/2">
+    <span class="signature"><strong>find(client, id)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#find/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>find(Client.t, binary) :: Client.response</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <pre><code class="elixir">Get information about a call that was made or received.</code></pre>
+<h2>Example:</h2>
+<pre><code class="elixir">case Bandwidth.Resources.Calls.find(client, &quot;some-call-id&quot;) do
+  {:ok, {200, call, _}} -&gt; IO.inspect call
+  {:error, reason}      -&gt; IO.puts &quot;Error: #{reason}&quot;
+end</code></pre>
+<p><a href="http://ap.bandwidth.com/docs/rest-api/calls/#resourceGETv1usersuserIdcallscallId">Bandwidth Docs</a></p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="list/2">
+    <span class="signature"><strong>list(client, params \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#list/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>list(Client.t, Client.params) :: Client.response</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Get a list of previous calls that were made or received.</p>
+<h2>Example:</h2>
+<pre><code class="elixir">case Bandwidth.Resources.Calls.list(client) do
+  {:ok, {200, calls, _}} -&gt; IO.inspect calls
+  {:error, reason}       -&gt; IO.puts &quot;Error: #{reason}&quot;
+end</code></pre>
+<p><a href="http://ap.bandwidth.com/docs/rest-api/calls/#resourceGETv1usersuserIdcalls">Bandwidth Docs</a></p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="update/3">
+    <span class="signature"><strong>update(client, id, call)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#update/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>update(Client.t, binary, <a href="http://elixir-lang.org/docs/stable/elixir/Map.html#t:t/0">Map.t</a>) :: Client.response</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Manage an active phone call.</p>
+<h2>Example:</h2>
+<pre><code class="elixir"># Answer an incoming call
+case Bandwidth.Resources.Calls.update(client, &quot;some-call-id&quot;, %{ state: &quot;active&quot; }) do
+  {:ok, {200, _, _}} -&gt; IO.puts &quot;Call answered&quot;
+  {:error, reason}   -&gt; IO.puts &quot;Error: #{reason}&quot;
+end</code></pre>
+<p><a href="http://ap.bandwidth.com/docs/rest-api/calls/#resourcePOSTv1usersuserIdcallscallId">Bandwidth Docs</a></p>
+
+  </section>
+  
+</section>
+
+        </section>
+      
+
+      
+
+      
+    </section>
+  </body>
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bandwidth.Resources.Applications</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/highlight.pack.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      hljs.initHighlightingOnLoad();
+      hljs.configure({languages: []}); //disable autodetect
+    </script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <section id="content">
+      <div class="breadcrumbs">bandwidth v1.1.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Bandwidth.html">Bandwidth</a> &rarr; <a href="Bandwidth.Resources.html">Resources</a> &rarr; <a href="Bandwidth.Resources.Applications.html">Applications</a></div>
+      <h1>
+        Bandwidth.Resources.Applications
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+      </ul>
+
+      
+        <section id="moduledoc" class="docstring">
+          <p>The Applications resource lets you define call and message handling applications.
+You write an application on your own servers and have Bandwidth API send events
+to it by configuring a callback URL.</p>
+<p><a href="http://ap.bandwidth.com/docs/rest-api/applications/">Bandwidth Docs</a></p>
+
+        </section>
+      
+
+      
+
+      
+        <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#create/2">create(client, application)</a></td>
+  
+    <td class="summary_synopsis"><p>Create an application</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#delete/2">delete(client, id)</a></td>
+  
+    <td class="summary_synopsis"><p>Delete an application</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#find/2">find(client, id)</a></td>
+  
+    <td class="summary_synopsis"><p>Get information about an application</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#list/2">list(client, params \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Get a list of your applications</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#update/3">update(client, id, application)</a></td>
+  
+    <td class="summary_synopsis"><p>Make changes to an application</p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+
+      
+        <section id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <section class="detail">
+  <div class="detail_header" id="create/2">
+    <span class="signature"><strong>create(client, application)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#create/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>create(Client.t, <a href="http://elixir-lang.org/docs/stable/elixir/Map.html#t:t/0">Map.t</a>) :: Client.response</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Create an application.</p>
+<h2>Example:</h2>
+<pre><code class="elixir">application = %{ name: &quot;my-awesome-app&quot; }
+case Bandwidth.Resources.Applications.create(client) do
+  {:ok, {201, _, _}} -&gt; IO.puts &quot;Application created&quot;
+  {:error, reason}   -&gt; IO.puts &quot;Error: #{reason}&quot;
+end</code></pre>
+<p><a href="http://ap.bandwidth.com/docs/rest-api/applications/#resourcePOSTv1usersuserIdapplications">Bandwidth Docs</a></p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="delete/2">
+    <span class="signature"><strong>delete(client, id)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#delete/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>delete(Client.t, binary) :: Client.response</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Delete an application.</p>
+<h2>Example:</h2>
+<pre><code class="elixir">case Bandwidth.Resources.Applications.delete(client, &quot;some-application-id&quot;) do
+  {:ok, {200, _, _}} -&gt; IO.puts &quot;Application deleted&quot;
+  {:error, reason}   -&gt; IO.puts &quot;Error: #{reason}&quot;
+end</code></pre>
+<p><a href="http://ap.bandwidth.com/docs/rest-api/applications/#resourceDELETEv1usersuserIdapplicationsapplicationId">Bandwidth Docs</a></p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="find/2">
+    <span class="signature"><strong>find(client, id)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#find/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>find(Client.t, binary) :: Client.response</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Get information about an application.</p>
+<h2>Example:</h2>
+<pre><code class="elixir">case Bandwidth.Resources.Applications.find(client, &quot;some-application-id&quot;) do
+  {:ok, {200, application, _}} -&gt; IO.inspect application
+  {:ok, {404, _, _}}           -&gt; IO.puts &quot;Application not found&quot;
+  {:error, reason}             -&gt; IO.puts &quot;Error: #{reason}&quot;
+end</code></pre>
+<p><a href="http://ap.bandwidth.com/docs/rest-api/applications/#resourceGETv1usersuserIdapplicationsapplicationId">Bandwidth Docs</a></p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="list/2">
+    <span class="signature"><strong>list(client, params \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#list/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>list(Client.t, Client.params) :: Client.response</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Get a list of your applications.</p>
+<h2>Example:</h2>
+<pre><code class="elixir">case Bandwidth.Resources.Applications.list(client) do
+  {:ok, {200, applications, _}} -&gt; IO.inspect applications
+  {:error, reason}              -&gt; IO.puts &quot;Error: #{reason}&quot;
+end</code></pre>
+<p><a href="http://ap.bandwidth.com/docs/rest-api/applications/#resourceGETv1usersuserIdapplications">Bandwidth Docs</a></p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="update/3">
+    <span class="signature"><strong>update(client, id, application)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#update/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>update(Client.t, binary, <a href="http://elixir-lang.org/docs/stable/elixir/Map.html#t:t/0">Map.t</a>) :: Client.response</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Make changes to an application.</p>
+<h2>Example:</h2>
+<pre><code class="elixir">application = %{ incomingCallUrl: &quot;https://foo.com/calls&quot; }
+case Bandwidth.Resources.Applications.update(client, &quot;some-application-id&quot;, application) do
+  {:ok, {200, _, _}} -&gt; IO.puts &quot;Application updated&quot;
+  {:error, reason}   -&gt; IO.puts &quot;Error: #{reason}&quot;
+end</code></pre>
+<p><a href="http://ap.bandwidth.com/docs/rest-api/applications/#resourcePOSTv1usersuserIdapplicationsapplicationId">Bandwidth Docs</a></p>
+
+  </section>
+  
+</section>
+
+        </section>
+      
+
+      
+
+      
+    </section>
+  </body>
+</html>

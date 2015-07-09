@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bandwidth.Resources.Calls.Transcriptions</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/highlight.pack.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      hljs.initHighlightingOnLoad();
+      hljs.configure({languages: []}); //disable autodetect
+    </script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <section id="content">
+      <div class="breadcrumbs">bandwidth v1.1.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Bandwidth.html">Bandwidth</a> &rarr; <a href="Bandwidth.Resources.html">Resources</a> &rarr; <a href="Bandwidth.Resources.Calls.html">Calls</a> &rarr; <a href="Bandwidth.Resources.Calls.Transcriptions.html">Transcriptions</a></div>
+      <h1>
+        Bandwidth.Resources.Calls.Transcriptions
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+      </ul>
+
+      
+        <section id="moduledoc" class="docstring">
+          <p>Access transcriptions associated with a specific call.</p>
+
+        </section>
+      
+
+      
+
+      
+        <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#list/2">list(client, call_id)</a></td>
+  
+    <td class="summary_synopsis"><p>Retrieve all transcriptions related to the call</p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+
+      
+        <section id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <section class="detail">
+  <div class="detail_header" id="list/2">
+    <span class="signature"><strong>list(client, call_id)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#list/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>list(Client.t, binary) :: Client.response</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Retrieve all transcriptions related to the call.</p>
+<h2>Example:</h2>
+<pre><code class="elixir">case Bandwidth.Resources.Calls.Transcriptions.list(client, &quot;some-call-id&quot;) do
+  {:ok, {200, transcriptions, _}} -&gt; IO.inspect transcriptions
+  {:error, reason}                -&gt; IO.puts &quot;Error: #{reason}&quot;
+end</code></pre>
+<p><a href="http://ap.bandwidth.com/docs/rest-api/calls/#resourceGETv1usersuserIdcallscallIdtranscriptions">Bandwidth Docs</a></p>
+
+  </section>
+  
+</section>
+
+        </section>
+      
+
+      
+
+      
+    </section>
+  </body>
+</html>

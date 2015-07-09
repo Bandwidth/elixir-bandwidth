@@ -3,8 +3,6 @@ defmodule Bandwidth.ClientTest do
 
   import Bandwidth.Client
 
-  doctest Bandwidth
-
   @test_user_id "test-user-id"
   @test_api_token "test-auth-token"
   @test_api_secret "test-auth-secret"

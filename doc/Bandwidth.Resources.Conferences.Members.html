@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bandwidth.Resources.Conferences.Members</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/highlight.pack.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      hljs.initHighlightingOnLoad();
+      hljs.configure({languages: []}); //disable autodetect
+    </script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <section id="content">
+      <div class="breadcrumbs">bandwidth v1.1.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Bandwidth.html">Bandwidth</a> &rarr; <a href="Bandwidth.Resources.html">Resources</a> &rarr; <a href="Bandwidth.Resources.Conferences.html">Conferences</a> &rarr; <a href="Bandwidth.Resources.Conferences.Members.html">Members</a></div>
+      <h1>
+        Bandwidth.Resources.Conferences.Members
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+      </ul>
+
+      
+        <section id="moduledoc" class="docstring">
+          <p>Manage conference members.</p>
+
+        </section>
+      
+
+      
+
+      
+        <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#add/3">add(client, conference_id, member)</a></td>
+  
+    <td class="summary_synopsis"><p>Add members to a conference</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#find/3">find(client, conference_id, member_id)</a></td>
+  
+    <td class="summary_synopsis"><p>Retrieve properties for a single conference member</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#list/2">list(client, conference_id)</a></td>
+  
+    <td class="summary_synopsis"><p>List all members of a conference</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#update/4">update(client, conference_id, member_id, member)</a></td>
+  
+    <td class="summary_synopsis"><p>Update a conference member (remove, mute, hold)</p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+
+      
+        <section id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <section class="detail">
+  <div class="detail_header" id="add/3">
+    <span class="signature"><strong>add(client, conference_id, member)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#add/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>add(Client.t, binary, <a href="http://elixir-lang.org/docs/stable/elixir/Map.html#t:t/0">Map.t</a>) :: Client.response</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Add members to a conference.</p>
+<h2>Example:</h2>
+<pre><code class="elixir">member = %{ callId: &quot;some-call-id&quot; }
+case Bandwidth.Resources.Conferences.Members.add(client, &quot;some-conference-id&quot;, member) do
+  {:ok, {201, _, _}} -&gt; IO.puts &quot;Member added&quot;
+  {:error, reason}   -&gt; IO.puts &quot;Error: #{reason}&quot;
+end</code></pre>
+<p><a href="http://ap.bandwidth.com/docs/rest-api/conferences/#resourcePOSTv1usersuserIdconferencesconferenceIdmembers">Bandwidth Docs</a></p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="find/3">
+    <span class="signature"><strong>find(client, conference_id, member_id)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#find/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>find(Client.t, binary, binary) :: Client.response</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Retrieve properties for a single conference member.</p>
+<h2>Example:</h2>
+<pre><code class="elixir">case Bandwidth.Resources.Conferences.Members.find(client, &quot;some-conference-id&quot;, &quot;some-member-id&quot;) do
+  {:ok, {200, member, _}} -&gt; IO.inspect member
+  {:error, reason}        -&gt; IO.puts &quot;Error: #{reason}&quot;
+end</code></pre>
+<p><a href="http://ap.bandwidth.com/docs/rest-api/conferences/#resourceGETv1usersuserIdconferencesconferenceIdmembersmemberId">Bandwidth Docs</a></p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="list/2">
+    <span class="signature"><strong>list(client, conference_id)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#list/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>list(Client.t, binary) :: Client.response</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>List all members of a conference.</p>
+<h2>Example:</h2>
+<pre><code class="elixir">case Bandwidth.Resources.Conferences.Members.list(client, &quot;some-conference-id&quot;) do
+  {:ok, {200, members, _}} -&gt; IO.inspect members
+  {:error, reason}         -&gt; IO.puts &quot;Error: #{reason}&quot;
+end</code></pre>
+<p><a href="http://ap.bandwidth.com/docs/rest-api/conferences/#resourceGETv1usersuserIdconferencesconferenceIdmembers">Bandwidth Docs</a></p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="update/4">
+    <span class="signature"><strong>update(client, conference_id, member_id, member)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#update/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>update(Client.t, binary, binary, <a href="http://elixir-lang.org/docs/stable/elixir/Map.html#t:t/0">Map.t</a>) :: Client.response</li>
+      
+    </ul>
+  
+  <section class="docstring">
+    <p>Update a conference member (remove, mute, hold).</p>
+<h2>Example:</h2>
+<pre><code class="elixir"># Remove a member from a conference
+member = %{ state: &quot;completed&quot; }
+case Bandwidth.Resources.Conferences.Members.update(client, &quot;some-conference-id&quot;, &quot;some-member-id&quot;, member) do
+  {:ok, {200, _, _}} -&gt; IO.puts &quot;Member removed&quot;
+  {:error, reason}   -&gt; IO.puts &quot;Error: #{reason}&quot;
+end</code></pre>
+<p><a href="http://ap.bandwidth.com/docs/rest-api/conferences/#resourcePOSTv1usersuserIdconferencesconferenceIdmembersmemberId">Bandwidth Docs</a></p>
+
+  </section>
+  
+</section>
+
+        </section>
+      
+
+      
+
+      
+    </section>
+  </body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bandwidth</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/highlight.pack.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      hljs.initHighlightingOnLoad();
+      hljs.configure({languages: []}); //disable autodetect
+    </script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <section id="content">
+      <div class="breadcrumbs">bandwidth v1.1.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Bandwidth.html">Bandwidth</a></div>
+      <h1>
+        Bandwidth
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+        
+        
+        
+        
+      </ul>
+
+      
+        <section id="moduledoc" class="docstring">
+          <h1>elixir-bandwidth</h1>
+<blockquote><p>An Elixir client library for the Bandwidth Application Platform</p>
+</blockquote>
+<p><a href="https://travis-ci.org/wtcross/elixir-bandwidth"><img src="https://travis-ci.org/wtcross/elixir-bandwidth.svg?branch=master" alt="Build Status"/></a>
+<a href="https://coveralls.io/github/wtcross/elixir-bandwidth?branch=master"><img src="https://coveralls.io/repos/wtcross/elixir-bandwidth/badge.svg?branch=master&amp;service=github" alt="Coverage Status"/></a>
+<a href="https://hex.pm/packages/bandwidth"><img src="https://img.shields.io/hexpm/v/bandwidth.svg?style=flat" alt="Hex Version"/></a></p>
+<h2>Install</h2>
+<p>Add as a dependency:</p>
+<pre><code class="elixir">defp deps() do
+  [{:bandwidth, &quot;~&gt; 1.0.0&quot;}]
+end</code></pre>
+<p>Fetch and compile:</p>
+<pre><code class="bash">mix do deps.get, deps.compile</code></pre>
+<p>Or install as archive:</p>
+<pre><code class="elixir">git clone https://github.com/wtcross/elixir-bandwidth.git
+cd elixir-bandwidth
+mix install</code></pre>
+<h2>Usage</h2>
+<pre><code class="elixir">use Bandwidth
+# Create a client
+client = Client.new(&quot;user-id&quot;, &quot;api-token&quot;, &quot;api-secret&quot;)
+
+# Find a message
+case Messages.find(client, &quot;m-slkdfjskldjfklsjfdlk&quot;) do
+  {:ok, {200, message, headers}} -&gt; IO.inspect message
+  {:ok, {404, _, _}}             -&gt; IO.puts &quot;not found :(&quot;
+  {:error, reason}               -&gt; IO.inspect reason
+end
+
+# Send a message
+message = %{from: &quot;+12223334444&quot;, to: &quot;+13334445555&quot;, text: &quot;hello bandwidth&quot;}
+case Messages.create(client, message) do
+  {:ok, {201, _, headers}} -&gt; IO.puts &quot;message sent!&quot;
+  {:error, reason}         -&gt; IO.inspect reason
+end
+
+# Search for a local number
+case AvailableNumbers.Local.search(client, zip: 22303) do
+  {:ok, {200, numbers, headers}} -&gt; IO.inspect numbers
+  {:error, reason}               -&gt; IO.inspect reason
+end</code></pre>
+
+        </section>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+    </section>
+  </body>
+</html>
