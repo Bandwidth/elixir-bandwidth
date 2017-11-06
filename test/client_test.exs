@@ -29,7 +29,7 @@ defmodule Bandwidth.ClientTest do
 
   describe "creating a client struct" do
     context "with all required parameters" do
-      setup_all do
+      setup do
         {:ok, client: new(@test_user_id, @test_api_token, @test_api_secret)}
       end
 
@@ -37,10 +37,8 @@ defmodule Bandwidth.ClientTest do
         assert context[:client] == create_client(endpoint: "https://api.catapult.inetwork.com/v1")
       end
 
-      describe "the created client" do
-        it "has the correct default endpoint", context do
-          assert context[:client].endpoint === "https://api.catapult.inetwork.com/v1"
-        end
+      it "the created client has the correct default endpoint", context do
+        assert context[:client].endpoint === "https://api.catapult.inetwork.com/v1"
       end
     end
   end
