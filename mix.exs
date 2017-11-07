@@ -9,18 +9,8 @@ defmodule Bandwidth.Mixfile do
       elixir: "~> 1.4",
       description: "An Elixir client library for the Bandwidth Application Platform",
       package: package(),
-      test_coverage: [tool: ExCoveralls],
-      deps: deps(),
-      aliases: aliases()]
-  end
-
-  defp aliases do
-    test = case System.get_env "TRAVIS" do
-      "true" -> { :test, "coveralls.travis"}
-      _      -> { :test, "coveralls"}
-    end
-
-    [ test ]
+      test_coverage: [tool: Coverex.Task],
+      deps: deps() ]
   end
 
   def application do
@@ -32,7 +22,7 @@ defmodule Bandwidth.Mixfile do
       contributors: ["Tyler Cross", "Ross Lonstein"],
       licenses: ["MIT"],
       links: %{
-        GitHub: "https://github.com/rlonstein/elixir-bandwidth",
+        GitHub: "https://github.com/bandwidth/elixir-bandwidth",
         Documentation: "http://hexdocs.pm/bandwidth/#{@version}/"
       }
     ]
@@ -46,6 +36,6 @@ defmodule Bandwidth.Mixfile do
       { :ex_doc, "~> 0.18.1", only: :dev },
       { :earmark, "~> 1.2.3", only: :dev },
       { :meck, github: "eproxus/meck", tag: "0.8.8", only: :test },
-      { :excoveralls, "~> 0.7.4", only: [:dev, :test]}]
+      { :coverex, "~> 1.4.10", only: [:dev, :test] } ]
   end
 end
