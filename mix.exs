@@ -29,10 +29,10 @@ defmodule Bandwidth.Mixfile do
 
   defp package do
     [ files: ["lib", "mix.exs", "README.md", "LICENSE.md"],
-      contributors: ["Tyler Cross"],
+      contributors: ["Tyler Cross", "Ross Lonstein"],
       licenses: ["MIT"],
       links: %{
-        GitHub: "https://github.com/wtcross/elixir-bandwidth",
+        GitHub: "https://github.com/rlonstein/elixir-bandwidth",
         Documentation: "http://hexdocs.pm/bandwidth/#{@version}/"
       }
     ]
