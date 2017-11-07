@@ -21,7 +21,7 @@ mix do deps.get, deps.compile
 
 Or install as archive:
 ```
-git clone https://github.com/rlonstein/elixir-bandwidth.git
+git clone https://github.com/bandwidth/elixir-bandwidth.git
 cd elixir-bandwidth
 mix install
 ```
