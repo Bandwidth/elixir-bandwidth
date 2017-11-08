@@ -1,50 +1,77 @@
-<!DOCTYPE html>
-<html>
+    <!DOCTYPE html>
+<html lang="en">
   <head>
-    <title>Bandwidth.Resources.Account</title>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
-    <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
-    <script type="text/javascript" charset="utf-8">
-      relpath = '';
-      if (relpath != '') relpath += '/';
-    </script>
-
-    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
-    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
-    <script type="text/javascript" charset="utf-8" src="js/highlight.pack.js"></script>
-    <script type="text/javascript" charset="utf-8">
-      hljs.initHighlightingOnLoad();
-      hljs.configure({languages: []}); //disable autodetect
-    </script>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.18.1">
+    <title>Bandwidth.Resources.Account – bandwidth v1.2.2</title>
+    <link rel="stylesheet" href="dist/app-c922dbe7ef.css" />
+    
+    <script src="dist/sidebar_items-fa8f9983ae.js"></script>
+    
+    
+    
+    
   </head>
+  <body data-type="modules">
+    <script>try { if(localStorage.getItem('night-mode')) document.body.className += ' night-mode'; } catch (e) { }</script>
 
-  <body>
-    <script type="text/javascript" charset="utf-8">
-      if (window.top.frames.main) document.body.className = 'frames';
-    </script>
+    <div class="main">
+<button class="sidebar-toggle">
+  <span class="icon-menu" aria-hidden="true"></span>
+  <span class="sr-only">Toggle Sidebar</span>
+</button>
+<section class="sidebar">
 
-    <section id="content">
-      <div class="breadcrumbs">bandwidth v1.2.1 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Bandwidth.html">Bandwidth</a> &rarr; <a href="Bandwidth.Resources.html">Resources</a> &rarr; <a href="Bandwidth.Resources.Account.html">Account</a></div>
+  
+  <a href="api-reference.html" class="sidebar-projectLink">
+    <div class="sidebar-projectDetails">
+      <h1 class="sidebar-projectName">
+        bandwidth
+      </h1>
+      <h2 class="sidebar-projectVersion">
+        v1.2.2
+      </h2>
+    </div>
+    
+  </a>
+
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button">
+      <span class="icon-search" aria-hidden="true"></span>
+    </button>
+    <input name="q" type="text" id="search-list" class="search-input" placeholder="search" aria-label="Search" autocomplete="off" />
+  </form>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">Pages</a></li>
+
+    
+      <li><a id="modules-list" href="#full-list">Modules</a></li>
+    
+
+    
+
+    
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+
       <h1>
+        <small class="visible-xs">bandwidth v1.2.2</small>
         Bandwidth.Resources.Account
         
       </h1>
 
-      <ul class="summary_links">
-        
-          <li><a href="#summary">Summary</a></li>
-        
-        
-        
-          <li><a href="#functions_details">Functions</a></li>
-        
-        
-        
-      </ul>
-
       
-        <section id="moduledoc" class="docstring">
+        <section id="moduledoc">
           <p>The Account resource allows you to retrieve your current balance, transaction list,
 account type and all elements related to your platform account.</p>
 <p><a href="http://ap.bandwidth.com/docs/rest-api/account/">Bandwidth Docs</a></p>
@@ -53,91 +80,44 @@ account type and all elements related to your platform account.</p>
       
 
       
+        <section id="summary" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#summary">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+            Summary
+          </h1>
+          
 
-      
-        <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
-        <table class="summary">
-          <tr>
-  <td class="summary_signature"><a href="#self/1">self(client)</a></td>
-  
-    <td class="summary_synopsis"><p>Get information about your account</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#transactions/2">transactions(client, params \\ [])</a></td>
-  
-    <td class="summary_synopsis"><p>Get a list of the transactions made to your account</p>
-</td>
-  
-</tr>
-
-        </table>
-      
-
-      
-
-      
-        <section id="functions_details" class="details_list">
-          <h2>Functions</h2>
-          <section class="detail">
-  <div class="detail_header" id="self/1">
-    <span class="signature"><strong>self(client)</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#self/1" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
+          
+  <div class="summary-functions summary">
+    <h2>
+      <a href="#functions">Functions</a>
+    </h2>
+    <div class="summary-row">
+  <div class="summary-signature">
+    <a href="#self/1">self(client)</a>
   </div>
   
-    <p>Specs:</p>
-    <ul class="spec">
-      
-        <li>self(Client.t) :: Client.response</li>
-      
-    </ul>
+    <div class="summary-synopsis"><p>Get information about your account</p>
+</div>
   
-  <section class="docstring">
-    <p>Get information about your account.</p>
-<h2>Example:</h2>
-<pre><code class="elixir">case Bandwidth.Resources.Account.self(client) do
-  {:ok, {200, account, _}} -&gt; IO.inspect account
-  {:error, reason}         -&gt; IO.puts &quot;Error: #{reason}&quot;
-end</code></pre>
-<p><a href="http://ap.bandwidth.com/docs/rest-api/account/#resourceGETv1usersuserIdaccount">Bandwidth Docs</a></p>
-
-  </section>
-  
-</section>
-<section class="detail">
-  <div class="detail_header" id="transactions/2">
-    <span class="signature"><strong>transactions(client, params \\ [])</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#transactions/2" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#transactions/2">transactions(client, params \\ [])</a>
   </div>
   
-    <p>Specs:</p>
-    <ul class="spec">
-      
-        <li>transactions(Client.t, Client.params) :: Client.response</li>
-      
-    </ul>
+    <div class="summary-synopsis"><p>Get a list of the transactions made to your account</p>
+</div>
   
-  <section class="docstring">
-    <p>Get a list of the transactions made to your account.</p>
-<h2>Example:</h2>
-<pre><code class="elixir">case Bandwidth.Resources.Account.transactions(client, type: &quot;charge&quot;) do
-  {:ok, {200, transactions, _}} -&gt; IO.inspect transactions
-  {:error, reason}              -&gt; IO.puts &quot;Error: #{reason}&quot;
-end</code></pre>
-<p><a href="http://ap.bandwidth.com/docs/rest-api/account/#resourceGETv1usersuserIdaccounttransactions">Bandwidth Docs</a></p>
+</div>
 
-  </section>
-  
-</section>
+  </div>
+
+
+          
 
         </section>
       
@@ -145,6 +125,111 @@ end</code></pre>
       
 
       
-    </section>
+        <section id="functions" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#functions">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+            Functions
+          </h1>
+          <div class="detail" id="self/1">
+  
+  
+  <div class="detail-header">
+    <a href="#self/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">self(client)</span>
+    
+    
+    
+      <div class="specs">
+        
+          <pre>self(Client.t()) :: Client.response()</pre>
+        
+      </div>
+    
+  </div>
+  <section class="docstring">
+    <p>Get information about your account.</p>
+<h2 id="self/1-example" class="section-heading">
+  <a href="#self/1-example" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Example:
+</h2>
+
+<pre><code class="elixir">case Bandwidth.Resources.Account.self(client) do
+  {:ok, {200, account, _}} -&gt; IO.inspect account
+  {:error, reason}         -&gt; IO.puts &quot;Error: #{reason}&quot;
+end</code></pre>
+<p><a href="http://ap.bandwidth.com/docs/rest-api/account/#resourceGETv1usersuserIdaccount">Bandwidth Docs</a></p>
+
+  </section>
+</div>
+<div class="detail" id="transactions/2">
+  
+  
+    <span id="transactions/1"></span>
+  
+  <div class="detail-header">
+    <a href="#transactions/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">transactions(client, params \\ [])</span>
+    
+    
+    
+      <div class="specs">
+        
+          <pre>transactions(Client.t(), Client.params()) :: Client.response()</pre>
+        
+      </div>
+    
+  </div>
+  <section class="docstring">
+    <p>Get a list of the transactions made to your account.</p>
+<h2 id="transactions/2-example" class="section-heading">
+  <a href="#transactions/2-example" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Example:
+</h2>
+
+<pre><code class="elixir">case Bandwidth.Resources.Account.transactions(client, type: &quot;charge&quot;) do
+  {:ok, {200, transactions, _}} -&gt; IO.inspect transactions
+  {:error, reason}              -&gt; IO.puts &quot;Error: #{reason}&quot;
+end</code></pre>
+<p><a href="http://ap.bandwidth.com/docs/rest-api/account/#resourceGETv1usersuserIdaccounttransactions">Bandwidth Docs</a></p>
+
+  </section>
+</div>
+
+        </section>
+      
+
+      
+          <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" rel="help" target="_blank">ExDoc</a> (v0.18.1),
+          </span>
+          <span class="line">
+            designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+            </span>
+        </p>
+        <button class="night-mode-toggle"><span class="sr-only">Switch theme</span></button>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  <script src="dist/app-778c9ef903.js"></script>
+  
+  
+  
+  
   </body>
 </html>
+

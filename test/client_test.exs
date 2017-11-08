@@ -29,7 +29,7 @@ defmodule Bandwidth.ClientTest do
 
   describe "creating a client struct" do
     context "with all required parameters" do
-      setup_all do
+      setup do
         {:ok, client: new(@test_user_id, @test_api_token, @test_api_secret)}
       end
 
@@ -37,10 +37,8 @@ defmodule Bandwidth.ClientTest do
         assert context[:client] == create_client(endpoint: "https://api.catapult.inetwork.com/v1")
       end
 
-      describe "the created client" do
-        it "has the correct default endpoint", context do
-          assert context[:client].endpoint === "https://api.catapult.inetwork.com/v1"
-        end
+      it "the created client has the correct default endpoint", context do
+        assert context[:client].endpoint === "https://api.catapult.inetwork.com/v1"
       end
     end
   end
@@ -58,7 +56,7 @@ defmodule Bandwidth.ClientTest do
       it "returns an ok tuple" do
         args = [:get, "#{@default_endpoint}/users/#{@test_user_id}/test", "", @default_headers]
         :meck.expect HTTPoison, :request, [{args, {:ok, %HTTPoison.Response{status_code: 200}}}]
-        assert get_user_resource(create_client, "test") === {:ok, {200, nil, []}}
+        assert get_user_resource(create_client(), "test") === {:ok, {200, nil, []}}
         assert :meck.num_calls(HTTPoison, :request, args) === 1
         assert :meck.validate HTTPoison
         :meck.delete HTTPoison, :request, 4
@@ -70,7 +68,7 @@ defmodule Bandwidth.ClientTest do
         reason = "some-error-happened"
         args = [:get, "#{@default_endpoint}/users/#{@test_user_id}/test", "", @default_headers]
         :meck.expect HTTPoison, :request, [{args, {:error, %HTTPoison.Error{reason: reason}}}]
-        assert get_user_resource(create_client, "test") === {:error, reason}
+        assert get_user_resource(create_client(), "test") === {:error, reason}
         assert :meck.num_calls(HTTPoison, :request, args) === 1
         assert :meck.validate HTTPoison
         :meck.delete HTTPoison, :request, 4
@@ -82,7 +80,7 @@ defmodule Bandwidth.ClientTest do
         it "sends the correct request" do
           args = [:get, "#{@default_endpoint}/users/#{@test_user_id}/test", "", @default_headers]
           :meck.expect HTTPoison, :request, [{args, {:ok, %HTTPoison.Response{status_code: 200}}}]
-          assert get_user_resource(create_client, "test") === {:ok, {200, nil, []}}
+          assert get_user_resource(create_client(), "test") === {:ok, {200, nil, []}}
           assert :meck.num_calls(HTTPoison, :request, args) === 1
           assert :meck.validate HTTPoison
           :meck.delete HTTPoison, :request, 4
@@ -93,7 +91,7 @@ defmodule Bandwidth.ClientTest do
         it "sends the correct request" do
           args = [:post, "#{@default_endpoint}/users/#{@test_user_id}/test", "{}", @default_headers]
           :meck.expect HTTPoison, :request, [{args, {:ok, %HTTPoison.Response{status_code: 200}}}]
-          assert post_user_resource(create_client, "test", %{}) === {:ok, {200, nil, []}}
+          assert post_user_resource(create_client(), "test", %{}) === {:ok, {200, nil, []}}
           assert :meck.num_calls(HTTPoison, :request, args) === 1
           assert :meck.validate HTTPoison
           :meck.delete HTTPoison, :request, 4
@@ -104,7 +102,7 @@ defmodule Bandwidth.ClientTest do
         it "sends the correct request" do
           args = [:delete, "#{@default_endpoint}/users/#{@test_user_id}/test", "", @default_headers]
           :meck.expect HTTPoison, :request, [{args, {:ok, %HTTPoison.Response{status_code: 200}}}]
-          assert delete_user_resource(create_client, "test") === {:ok, {200, nil, []}}
+          assert delete_user_resource(create_client(), "test") === {:ok, {200, nil, []}}
           assert :meck.num_calls(HTTPoison, :request, [:delete, "#{@default_endpoint}/users/#{@test_user_id}/test", "", @default_headers]) === 1
           assert :meck.validate HTTPoison
           :meck.delete HTTPoison, :request, 4
@@ -118,7 +116,7 @@ defmodule Bandwidth.ClientTest do
           it "sends the correct request" do
             args = [:get, "#{@default_endpoint}/test?one=1&two=2&three=3", "", @default_headers]
             :meck.expect HTTPoison, :request, [{args, {:ok, %HTTPoison.Response{status_code: 200}}}]
-            assert get_resource(create_client, "test", one: 1, two: 2, three: 3) === {:ok, {200, nil, []}}
+            assert get_resource(create_client(), "test", one: 1, two: 2, three: 3) === {:ok, {200, nil, []}}
             assert :meck.num_calls(HTTPoison, :request, args) === 1
             assert :meck.validate HTTPoison
             :meck.delete HTTPoison, :request, 4
@@ -129,7 +127,7 @@ defmodule Bandwidth.ClientTest do
           it "sends the correct request" do
             args = [:get, "#{@default_endpoint}/test", "", @default_headers]
             :meck.expect HTTPoison, :request, [{args, {:ok, %HTTPoison.Response{status_code: 200}}}]
-            assert get_resource(create_client, "test") === {:ok, {200, nil, []}}
+            assert get_resource(create_client(), "test") === {:ok, {200, nil, []}}
             assert :meck.num_calls(HTTPoison, :request, args) === 1
             assert :meck.validate HTTPoison
             :meck.delete HTTPoison, :request, 4
@@ -142,7 +140,7 @@ defmodule Bandwidth.ClientTest do
           it "sends the correct request" do
             args = [:post, "#{@default_endpoint}/test", "{}", @default_headers]
             :meck.expect HTTPoison, :request, [{args, {:ok, %HTTPoison.Response{status_code: 200}}}]
-            assert post_resource(create_client, "test", %{}) === {:ok, {200, nil, []}}
+            assert post_resource(create_client(), "test", %{}) === {:ok, {200, nil, []}}
             assert :meck.num_calls(HTTPoison, :request, args) === 1
             assert :meck.validate HTTPoison
             :meck.delete HTTPoison, :request, 4
@@ -154,7 +152,7 @@ defmodule Bandwidth.ClientTest do
         it "sends the correct request" do
           args = [:delete, "#{@default_endpoint}/test", "", @default_headers]
           :meck.expect HTTPoison, :request, [{args, {:ok, %HTTPoison.Response{status_code: 200}}}]
-          assert delete_resource(create_client, "test") === {:ok, {200, nil, []}}
+          assert delete_resource(create_client(), "test") === {:ok, {200, nil, []}}
           assert :meck.num_calls(HTTPoison, :request, args) === 1
           assert :meck.validate HTTPoison
           :meck.delete HTTPoison, :request, 4
@@ -166,7 +164,7 @@ defmodule Bandwidth.ClientTest do
       it "sets the result body to nil" do
         args = [:get, "#{@default_endpoint}/users/#{@test_user_id}/test", "", @default_headers]
         :meck.expect HTTPoison, :request, [{args, {:ok, %HTTPoison.Response{status_code: 200, body: ""}}}]
-        assert get_user_resource(create_client, "test") === {:ok, {200, nil, []}}
+        assert get_user_resource(create_client(), "test") === {:ok, {200, nil, []}}
         assert :meck.num_calls(HTTPoison, :request, args) === 1
         assert :meck.validate HTTPoison
         :meck.delete HTTPoison, :request, 4
@@ -178,7 +176,7 @@ defmodule Bandwidth.ClientTest do
         it "decodes the json" do
           args = [:get, "#{@default_endpoint}/users/#{@test_user_id}/test", "", @default_headers]
           :meck.expect HTTPoison, :request, [{args, {:ok, %HTTPoison.Response{status_code: 200, body: "{\"foo\": \"bar\"}"}}}]
-          assert get_user_resource(create_client, "test") === {:ok, {200, %{"foo" => "bar"}, []}}
+          assert get_user_resource(create_client(), "test") === {:ok, {200, %{"foo" => "bar"}, []}}
           assert :meck.num_calls(HTTPoison, :request, args) === 1
           assert :meck.validate HTTPoison
           :meck.delete HTTPoison, :request, 4
@@ -189,7 +187,7 @@ defmodule Bandwidth.ClientTest do
         it "returns nil" do
           args = [:get, "#{@default_endpoint}/users/#{@test_user_id}/test", "", @default_headers]
           :meck.expect HTTPoison, :request, [{args, {:ok, %HTTPoison.Response{status_code: 200, body: "{\"f \"bar\"}"}}}]
-          assert get_user_resource(create_client, "test") === {:ok, {200, nil, []}}
+          assert get_user_resource(create_client(), "test") === {:ok, {200, nil, []}}
           assert :meck.num_calls(HTTPoison, :request, args) === 1
           assert :meck.validate HTTPoison
           :meck.delete HTTPoison, :request, 4

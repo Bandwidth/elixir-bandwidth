@@ -3,7 +3,6 @@ elixir-bandwidth
 
 > An Elixir client library for the Bandwidth Application Platform
 
-[![Coverage Status](https://coveralls.io/repos/wtcross/elixir-bandwidth/badge.svg?branch=master&service=github)](https://coveralls.io/github/wtcross/elixir-bandwidth?branch=master)
 [![Hex Version](https://img.shields.io/hexpm/v/bandwidth.svg?style=flat)](https://hex.pm/packages/bandwidth)
 
 SDK for [Catapult](http://ap.bandwidth.com/?utm_medium=social&utm_source=github&utm_campaign=dtolb&utm_content=_)
@@ -12,7 +11,7 @@ SDK for [Catapult](http://ap.bandwidth.com/?utm_medium=social&utm_source=github&
 Add as a dependency:
 ```elixir
 defp deps() do
-  [{:bandwidth, "~> 1.2.1"}]
+  [{:bandwidth, "~> 1.2.2"}]
 end
 ```
 Fetch and compile:
@@ -22,7 +21,7 @@ mix do deps.get, deps.compile
 
 Or install as archive:
 ```
-git clone https://github.com/wtcross/elixir-bandwidth.git
+git clone https://github.com/bandwidth/elixir-bandwidth.git
 cd elixir-bandwidth
 mix install
 ```
@@ -54,4 +53,4 @@ case AvailableNumbers.Local.search(client, zip: 22303) do
 end
 ```
 
-[Documentation](http://hexdocs.pm/bandwidth/1.2.1/)
+[Documentation](http://hexdocs.pm/bandwidth/1.2.2/)

@@ -1,51 +1,112 @@
-<!DOCTYPE html>
-<html>
+    <!DOCTYPE html>
+<html lang="en">
   <head>
-    <title>Bandwidth.Resources.Calls.Audio</title>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
-    <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
-    <script type="text/javascript" charset="utf-8">
-      relpath = '';
-      if (relpath != '') relpath += '/';
-    </script>
-
-    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
-    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
-    <script type="text/javascript" charset="utf-8" src="js/highlight.pack.js"></script>
-    <script type="text/javascript" charset="utf-8">
-      hljs.initHighlightingOnLoad();
-      hljs.configure({languages: []}); //disable autodetect
-    </script>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.18.1">
+    <title>Bandwidth.Resources.Calls.Audio – bandwidth v1.2.2</title>
+    <link rel="stylesheet" href="dist/app-c922dbe7ef.css" />
+    
+    <script src="dist/sidebar_items-fa8f9983ae.js"></script>
+    
+    
+    
+    
   </head>
+  <body data-type="modules">
+    <script>try { if(localStorage.getItem('night-mode')) document.body.className += ' night-mode'; } catch (e) { }</script>
 
-  <body>
-    <script type="text/javascript" charset="utf-8">
-      if (window.top.frames.main) document.body.className = 'frames';
-    </script>
+    <div class="main">
+<button class="sidebar-toggle">
+  <span class="icon-menu" aria-hidden="true"></span>
+  <span class="sr-only">Toggle Sidebar</span>
+</button>
+<section class="sidebar">
 
-    <section id="content">
-      <div class="breadcrumbs">bandwidth v1.2.1 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Bandwidth.html">Bandwidth</a> &rarr; <a href="Bandwidth.Resources.html">Resources</a> &rarr; <a href="Bandwidth.Resources.Calls.html">Calls</a> &rarr; <a href="Bandwidth.Resources.Calls.Audio.html">Audio</a></div>
+  
+  <a href="api-reference.html" class="sidebar-projectLink">
+    <div class="sidebar-projectDetails">
+      <h1 class="sidebar-projectName">
+        bandwidth
+      </h1>
+      <h2 class="sidebar-projectVersion">
+        v1.2.2
+      </h2>
+    </div>
+    
+  </a>
+
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button">
+      <span class="icon-search" aria-hidden="true"></span>
+    </button>
+    <input name="q" type="text" id="search-list" class="search-input" placeholder="search" aria-label="Search" autocomplete="off" />
+  </form>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">Pages</a></li>
+
+    
+      <li><a id="modules-list" href="#full-list">Modules</a></li>
+    
+
+    
+
+    
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+
       <h1>
+        <small class="visible-xs">bandwidth v1.2.2</small>
         Bandwidth.Resources.Calls.Audio
         
       </h1>
 
-      <ul class="summary_links">
-        
-          <li><a href="#summary">Summary</a></li>
-        
-        
-        
-          <li><a href="#functions_details">Functions</a></li>
-        
-        
-        
-      </ul>
+      
+        <section id="moduledoc">
+          <p>Perform audio-related actions for a specific call.</p>
+
+        </section>
+      
 
       
-        <section id="moduledoc" class="docstring">
-          <p>Perform audio-related actions for a specific call.</p>
+        <section id="summary" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#summary">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+            Summary
+          </h1>
+          
+
+          
+  <div class="summary-functions summary">
+    <h2>
+      <a href="#functions">Functions</a>
+    </h2>
+    <div class="summary-row">
+  <div class="summary-signature">
+    <a href="#play/3">play(client, call_id, audio)</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Play an audio file or speak a sentence in a phone call</p>
+</div>
+  
+</div>
+
+  </div>
+
+
+          
 
         </section>
       
@@ -53,44 +114,40 @@
       
 
       
-        <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
-        <table class="summary">
-          <tr>
-  <td class="summary_signature"><a href="#play/3">play(client, call_id, audio)</a></td>
+        <section id="functions" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#functions">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+            Functions
+          </h1>
+          <div class="detail" id="play/3">
   
-    <td class="summary_synopsis"><p>Play an audio file or speak a sentence in a phone call</p>
-</td>
   
-</tr>
-
-        </table>
-      
-
-      
-
-      
-        <section id="functions_details" class="details_list">
-          <h2>Functions</h2>
-          <section class="detail">
-  <div class="detail_header" id="play/3">
-    <span class="signature"><strong>play(client, call_id, audio)</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#play/3" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
+  <div class="detail-header">
+    <a href="#play/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">play(client, call_id, audio)</span>
+    
+    
+    
+      <div class="specs">
+        
+          <pre>play(Client.t(), binary(), <a href="https://hexdocs.pm/elixir/Map.html#t:t/0">Map.t</a>()) :: Client.response()</pre>
+        
+      </div>
+    
   </div>
-  
-    <p>Specs:</p>
-    <ul class="spec">
-      
-        <li>play(Client.t, binary, <a href="http://elixir-lang.org/docs/stable/elixir/Map.html#t:t/0">Map.t</a>) :: Client.response</li>
-      
-    </ul>
-  
   <section class="docstring">
     <p>Play an audio file or speak a sentence in a phone call.</p>
-<h2>Example:</h2>
+<h2 id="play/3-example" class="section-heading">
+  <a href="#play/3-example" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Example:
+</h2>
+
 <pre><code class="elixir">audio = %{ sentence: &quot;Hello Bandwidth API user&quot; }
 case Bandwidth.Resources.Calls.Audio.play(client, &quot;some-call-id&quot;, audio) do
   {:ok, {200, _, _}} -&gt; IO.puts &quot;Audio played&quot;
@@ -99,15 +156,34 @@ end</code></pre>
 <p><a href="http://ap.bandwidth.com/docs/rest-api/calls/#resourcePOSTv1usersuserIdcallscallIdaudio">Bandwidth Docs</a></p>
 
   </section>
-  
-</section>
+</div>
 
         </section>
       
 
       
-
-      
-    </section>
+          <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" rel="help" target="_blank">ExDoc</a> (v0.18.1),
+          </span>
+          <span class="line">
+            designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+            </span>
+        </p>
+        <button class="night-mode-toggle"><span class="sr-only">Switch theme</span></button>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  <script src="dist/app-778c9ef903.js"></script>
+  
+  
+  
+  
   </body>
 </html>
+
