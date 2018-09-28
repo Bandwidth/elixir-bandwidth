@@ -5,7 +5,7 @@ elixir-bandwidth
 
 [![Hex Version](https://img.shields.io/hexpm/v/bandwidth.svg?style=flat)](https://hex.pm/packages/bandwidth)
 
-SDK for [Catapult](http://ap.bandwidth.com/?utm_medium=social&utm_source=github&utm_campaign=dtolb&utm_content=_)
+SDK for [Bandwidth HTTP voice And Messaging](http://app.bandwidth.com/?utm_medium=social&utm_source=github&utm_campaign=dtolb&utm_content=_)
 
 ## Install
 Add as a dependency:
